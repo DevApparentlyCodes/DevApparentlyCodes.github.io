@@ -17,6 +17,39 @@
 		
 		<center id="desc">
 			<h1>Hopfield Networks -- Neurotech Labs BITS Pilani</h1>
+
+			<center id="sandbox">
+				<h2>Sandbox</h2>
+				<div id="sandbox-cont">
+					<div id="sb-left">
+						<div id="board" class="board"></div>
+						<div id="controls" class="controls">
+							<div id="init">
+								<label for="number">Number of rows</label>
+								<input type="number" id="number" value="8"></input>
+								<button onclick="initialize()">Reset</button>
+								<button onclick="clearBoard()">Clear Board</button>
+							</div>
+							<div id="runs">
+								<button onclick="addToMemory()">Add to Memory</button>
+								<button onclick="initWeights()">Erase Memory</button>
+							<!-- <button onclick="synchronous()">Synchronous Run</button> -->
+								<button onclick="run()">Run</button>
+							</div>
+						</div>
+						<div style="margin-top: 20px;">
+							<!-- <button onclick="showSaves()">Refresh Saves</button> -->
+							<h3 style="margin: 0;">Saves:</h3>
+							<div id="saves"></div>
+						</div>
+					</div>
+					<div id="sb-right">
+						<div id="weights" class="board"></div>
+						<div id="heatmap">Weight Matrix: &nbsp; <span id="lower">-1</span> &nbsp; <div id="colors"></div> &nbsp; <span id="upper"> 1</span></div>
+					</div>
+				</div>
+			</center>
+
 			<div id="content">
 				The Hopfield Network, named after its creator - Nobel Prize winner John Hopfield, is one of the first <i>Neural Networks</i> designed to function as an associative memory system.  It stores patterns as local minimas of a Hamiltonian, allowing it to retrieve complete patterns even when given partially corrupted or incomplete inputs are given.
 				
@@ -32,37 +65,7 @@
 					For more details on the working of the Hopfield network, scroll down the the next section.
 				</div>
 
-				<center id="sandbox">
-					<h2>Sandbox</h2>
-					<div id="sandbox-cont">
-						<div id="sb-left">
-							<div id="board" class="board"></div>
-							<div id="controls" class="controls">
-								<div id="init">
-									<label for="number">Number of rows</label>
-									<input type="number" id="number" value="8"></input>
-									<button onclick="initialize()">Reset</button>
-									<button onclick="clearBoard()">Clear Board</button>
-								</div>
-								<div id="runs">
-									<button onclick="addToMemory()">Add to Memory</button>
-									<button onclick="initWeights()">Erase Memory</button>
-								<!-- <button onclick="synchronous()">Synchronous Run</button> -->
-									<button onclick="run()">Run</button>
-								</div>
-							</div>
-							<div style="margin-top: 20px;">
-								<!-- <button onclick="showSaves()">Refresh Saves</button> -->
-								<h3 style="margin: 0;">Saves:</h3>
-								<div id="saves"></div>
-							</div>
-						</div>
-						<div id="sb-right">
-							<div id="weights" class="board"></div>
-							<div id="heatmap">Weight Matrix: &nbsp; <span id="lower">-1</span> &nbsp; <div id="colors"></div> &nbsp; <span id="upper"> 1</span></div>
-						</div>
-					</div>
-				</center>
+				
 
 				<center><h2>Mathematics Behind It</h2></center>
 				In its simplest form, a Hopfield network consists of $N$ binary neurons, i.e. it is modeled by a $N$ dimensional vector $v\equiv \{ v_i \},~v_i \in \{-1, 1 \}$. The neurons are fully connected, meaning each neuron is connected to every other neuron, with the connection strength represented by a weight matrix $W$ of size $N\times N$. Importantly, the weights are symmetric $W_{ij} = W_{ji}$ and have no self-connection $W_{ii} = 0$<br><br>
