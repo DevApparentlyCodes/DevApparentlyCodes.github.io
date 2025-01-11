@@ -13,7 +13,11 @@
 	transition: all 0.1s;
 }
 
-body, html{
+body{
+	background-color: rgb(33, 33, 33);
+} 
+html{
+	color:white;
 	height: 100vh;
 	padding: 0;
 	margin: 0;
@@ -33,6 +37,7 @@ body, html{
 }
 
 #sandbox-cont{
+	color:rgb(0, 242, 255);
 	width: 100%;
 	display: grid;
 	grid-template-columns: 1.25fr 1fr;
@@ -40,7 +45,7 @@ body, html{
 }
 
 #sandbox{
-	border: 1px solid black;
+	border: 1px solid rgb(255, 255, 255);
 	width: 100%;
 	margin-top:50px;
 	margin-bottom:50px;
@@ -83,6 +88,7 @@ button:hover{
 }
 
 .board{
+	border:3px solid rgba(0, 21, 255, 0.719);
 	width: 25vw;
 	aspect-ratio: 1;
 	display: grid;
@@ -101,6 +107,7 @@ button:hover{
 }
 
 #weights{
+	border:3px solid rgb(68, 255, 0);
 	grid-template-columns: repeat(calc(var(--x) * var(--x)), 1fr);
 	grid-template-rows: repeat(calc(var(--x) * var(--x)), 1fr);
 	grid-gap:1px
@@ -113,7 +120,7 @@ button:hover{
 
 #colors{
 	width: 200px;
-	border: 1px solid black;
+	border: 1px solid rgb(255, 255, 255);
 	display: grid;
 	grid-template-columns: repeat(21, 1fr);
 }
@@ -167,7 +174,7 @@ li{
 #sandbox-describe{
 	width: calc(100% - 40px);
 	text-align: justify;
-	border: 1px solid black;
+	border: 1px solid rgb(255, 255, 255);
 	margin-top: 20px;
 	padding:20px;
 }
@@ -185,6 +192,7 @@ li{
 	}
 
 	#sb-left{
+		
 		width:80vw;
 		display: flex;
 		flex-direction: column;
@@ -192,6 +200,7 @@ li{
 	}
 
 	.board{
+		border:1px solid beige;
 		width: 80vw
 	}
 

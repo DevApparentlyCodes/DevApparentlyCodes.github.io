@@ -2,17 +2,17 @@ var grid = [];
 var weights = [];
 var saved = [];
 var n = 0;
-black = 1;
-white = -1;
+red = 1;
+yellow = -1;
 
 function toggle(i){
-	if(grid[i] == black){
-		grid[i] = white;
-		document.getElementById("t" + i).style.backgroundColor = "white";
+	if(grid[i] == red){
+		grid[i] = yellow;
+		document.getElementById("t" + i).style.backgroundColor = "yellow";
 	}
 	else{
-		grid[i] = black;
-		document.getElementById("t" + i).style.backgroundColor = "black";
+		grid[i] = red;
+		document.getElementById("t" + i).style.backgroundColor = "red";
 	}
 }
 
@@ -21,8 +21,8 @@ function clearBoard(){
 	var board = document.getElementById("board")
 	var tiles = '';
 	for(i=0;i<n**2;i++){
-		tiles = tiles + `<div id="t${i}" class="tile" style="background-color:white" onclick="toggle(${i})"></div>`;
-		grid.push(white);
+		tiles = tiles + `<div id="t${i}" class="tile" style="background-color:yellow" onclick="toggle(${i})"></div>`;
+		grid.push(yellow);
 	}
 	board.innerHTML = tiles;
 }
@@ -34,8 +34,8 @@ function initialize(){
 	var board = document.getElementById("board")
 	var tiles = '';
 	for(i=0;i<n**2;i++){
-		tiles = tiles + `<div id="t${i}" class="tile" style="background-color:white" onclick="toggle(${i})"></div>`;
-		grid.push(white);
+		tiles = tiles + `<div id="t${i}" class="tile" style="background-color:yellow" onclick="toggle(${i})"></div>`;
+		grid.push(yellow);
 	}
 	board.innerHTML = tiles;
 	initWeights();
@@ -108,11 +108,11 @@ function initWeights(){
 function boardFromGrid(newGrid){
 	grid = [...newGrid];
 	for(i=0;i<n**2;i++){
-		if(grid[i] == black){
-			document.getElementById("t" + i).style.backgroundColor = "black";
+		if(grid[i] == red){
+			document.getElementById("t" + i).style.backgroundColor = "red";
 		}
 		else{
-			document.getElementById("t" + i).style.backgroundColor = "white";
+			document.getElementById("t" + i).style.backgroundColor = "yellow";
 		}
 	}
 }
@@ -142,12 +142,12 @@ function update(pos){
 	}
 	console.log(`Updating position ${pos}, sum: ${sum}, grid: ${grid[pos]}`); // Debug statement
 	if(sum >= 0){
-		grid[pos] = black;
-		document.getElementById("t" + pos).style.backgroundColor = "black";
+		grid[pos] = red;
+		document.getElementById("t" + pos).style.backgroundColor = "red";
 	}
 	else{
-		grid[pos] = white;
-		document.getElementById("t" + pos).style.backgroundColor = "white";
+		grid[pos] = yellow;
+		document.getElementById("t" + pos).style.backgroundColor = "yellow";
 	}
 }
 
