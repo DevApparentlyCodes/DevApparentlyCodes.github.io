@@ -2,17 +2,17 @@ var grid = [];
 var weights = [];
 var saved = [];
 var n = 0;
-red = 1;
+aqua = 1;
 yellow = -1;
 
 function toggle(i){
-	if(grid[i] == red){
+	if(grid[i] == aqua){
 		grid[i] = yellow;
 		document.getElementById("t" + i).style.backgroundColor = "yellow";
 	}
 	else{
-		grid[i] = red;
-		document.getElementById("t" + i).style.backgroundColor = "red";
+		grid[i] = aqua;
+		document.getElementById("t" + i).style.backgroundColor = "aqua";
 	}
 }
 
@@ -108,8 +108,8 @@ function initWeights(){
 function boardFromGrid(newGrid){
 	grid = [...newGrid];
 	for(i=0;i<n**2;i++){
-		if(grid[i] == red){
-			document.getElementById("t" + i).style.backgroundColor = "red";
+		if(grid[i] == aqua){
+			document.getElementById("t" + i).style.backgroundColor = "aqua";
 		}
 		else{
 			document.getElementById("t" + i).style.backgroundColor = "yellow";
@@ -142,8 +142,8 @@ function update(pos){
 	}
 	console.log(`Updating position ${pos}, sum: ${sum}, grid: ${grid[pos]}`); // Debug statement
 	if(sum >= 0){
-		grid[pos] = red;
-		document.getElementById("t" + pos).style.backgroundColor = "red";
+		grid[pos] = aqua;
+		document.getElementById("t" + pos).style.backgroundColor = "aqua";
 	}
 	else{
 		grid[pos] = yellow;
